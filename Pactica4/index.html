@@ -1,43 +1,194 @@
 <!DOCTYPE html>
-<html>
+
+<html lang="es">
+
 <head>
-    <title>Cafetería PM</title>
 
-    <style>
+<meta charset="UTF-8">
 
-        body{
-            font-family: Arial;
-            text-align:center;
-            margin-top:100px;
-        }
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
-        #estado{
-            font-size:30px;
-            margin:30px;
-        }
+<title>
+CAFETERÍA UPQ
+</title>
 
-        button{
-            padding:15px;
-            font-size:18px;
-        }
+<style>
 
-    </style>
+body{
+font-family:Arial;
+background:#f5f5f5;
+padding:40px;
+margin:0;
+}
+
+.menu{
+background:white;
+max-width:1200px;
+margin:auto;
+padding:30px;
+border-radius:15px;
+box-shadow:0 4px 12px rgba(0,0,0,.2);
+}
+
+#productos{
+display:grid;
+grid-template-columns:
+repeat(
+auto-fit,
+minmax(300px,1fr)
+);
+
+gap:20px;
+}
+
+.producto{
+background:#ececec;
+padding:20px;
+border-radius:15px;
+}
+
+button{
+background:#8B4513;
+color:white;
+border:none;
+padding:10px;
+border-radius:8px;
+cursor:pointer;
+width:100%;
+}
+
+button:hover{
+background:#6d3410;
+}
+
+#pedidos{
+background:#f2f2f2;
+padding:10px;
+border-radius:10px;
+}
+
+#estado{
+background:#fff8dc;
+padding:20px;
+border-radius:10px;
+font-size:20px;
+}
+
+#total{
+color:green;
+font-size:22px;
+}
+
+</style>
 
 </head>
 
 <body>
 
-<h1>☕ Estado del Pedido</h1>
+<div class="menu">
 
-<div id="estado">
-Esperando pedido...
-</div>
+<h1>
+☕ CAFETERÍA UPQ
+</h1>
 
-<button onclick="iniciarPedido()">
-Realizar pedido
+
+<h2>
+Filtros
+</h2>
+
+<button onclick="mostrarFiltro('todos')">
+Todos
 </button>
 
-<script src="app.js"></script>
+<button onclick="mostrarFiltro('baratos')">
+Baratos
+</button>
+
+<button onclick="mostrarFiltro('caros')">
+Caros
+</button>
+
+<button onclick="mostrarFiltro('bebidas')">
+Bebidas
+</button>
+
+<button onclick="mostrarFiltro('postres')">
+Postres
+</button>
+
+<hr>
+
+
+<h2>
+Menú dinámico
+</h2>
+
+<div id="productos">
+
+</div>
+
+<hr>
+
+<h2>
+Pedidos
+</h2>
+
+<div id="pedidos">
+
+No hay pedidos
+
+</div>
+
+<h2>
+Confirmación pedido
+</h2>
+
+<button onclick="confirmarPedido()">
+Confirmar pedido
+</button>
+
+<hr>
+
+<hr>
+
+<h2>
+Caja
+</h2>
+
+<p id="subtotal">
+Subtotal: $0
+</p>
+
+<p id="iva">
+IVA: $0
+</p>
+
+<p id="total">
+Total: $0
+</p>
+
+<hr>
+
+<h2>
+Estado cocina
+</h2>
+
+<div id="estado">
+
+Esperando pedido...
+
+</div>
+
+</div>
+
+
+<script
+type="module"
+src="app.js">
+
+</script>
 
 </body>
+
 </html>
